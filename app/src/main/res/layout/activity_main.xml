@@ -37,43 +37,57 @@
             android:layout_height="100dp"
             android:orientation="horizontal">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/DegreesOrRadian"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/dark_grey_buttons"
                 android:text="DEC"
-                android:textColorHighlight="#2A2A2A"
-                android:textColorLink="#2A2A2A" />
-            <Button
+                android:textColor="@color/white"
+                android:textSize="25sp" 
+                android:layout_margin="2.5sp"/>
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Clear"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/dark_grey_buttons"
-                android:text="🗑️" />
-            <Button
+                android:text="🗑️"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:layout_margin="2.5sp"/>
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Delete"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/dark_grey_buttons"
-                android:text="⌫" />
-            <Button
+                android:text="⌫"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:layout_margin="2.5sp"/>
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Division"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/dark_grey_buttons"
-                android:text="÷" />
-            <Button
+                android:text="÷"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:layout_margin="2.5sp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Function1"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/dark_grey_buttons"
-                android:text="F1" />
+                android:text="F1"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:layout_margin="2.5sp">
         </LinearLayout>
 
         <LinearLayout
