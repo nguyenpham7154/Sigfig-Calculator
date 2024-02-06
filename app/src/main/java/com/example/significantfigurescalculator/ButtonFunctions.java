@@ -2,8 +2,11 @@ package com.example.significantfigurescalculator;
 
 import android.content.Context;
 import android.media.MediaPlayer;
+import android.util.Log;
 
 public class ButtonFunctions {
+
+    // Stored array of all buttons id
     public static int[] button_id = {
             // Subjects
             R.id.Math, R.id.Biology, R.id.Chemistry, R.id.Physics,
@@ -19,6 +22,9 @@ public class ButtonFunctions {
             // Others
             R.id.plusMinus, R.id.decimal, R.id.equal
     };
+
+    // Stores every button from CalculatorButtons class
+    public static CalculatorButtons[] buttons = new CalculatorButtons[button_id.length];
 
     // Container of sound files for every elements (0-4 index is for button sounds)
     public static MediaPlayer[] mediaPlayer = new MediaPlayer[4];

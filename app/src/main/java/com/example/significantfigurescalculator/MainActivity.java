@@ -20,72 +20,14 @@ public class MainActivity extends AppCompatActivity {
         setButtonSound();
 
         // Sets property for each type of buttons
-        for (int id : ButtonFunctions.button_id) {
-            Button key = (Button)findViewById(id);
+        for (int i = 0; i < ButtonFunctions.button_id.length; i++) {
+            Button key = (Button)findViewById(ButtonFunctions.button_id[i]);
             key.setSoundEffectsEnabled(false);
 
             // Attributes function to each buttons
-            String keyFunction = (getResources().getResourceEntryName(id));
-            switch (keyFunction) {
-                // Subjects
-                case "Math": case "Biology": case "Chemistry": case "Physics":
-                    key.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            ButtonFunctions.mediaPlayer[(int)(Math.random() * 4)].start(); // Play Sound
-                            ButtonFunctions.changeSubject((getResources().getResourceEntryName(v.getId())));
-                        }
-                    });
-                    break;
-                // Digits
-                case "zero0": case "one1": case "two2": case "three3": case "four4": case "five5": case "six6": case "seven7": case "eight8": case "nine9":
-                    key.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            ButtonFunctions.mediaPlayer[(int)(Math.random() * 4)].start(); // Play Sound
-                            String keyFunction = (getResources().getResourceEntryName(v.getId()));
-                            ButtonFunctions.addDigit(keyFunction.charAt(keyFunction.length() - 1) - '0');
-                        }
-                    });
-                    break;
-                // Operation
-                case "Addition": case "Subtraction": case "Multiplication": case "Division":
-                    key.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            ButtonFunctions.mediaPlayer[(int)(Math.random() * 4)].start(); // Play Sound
-                            ButtonFunctions.equation((getResources().getResourceEntryName(v.getId())));
-                        }
-                    });
-                    break;
-                // Equal Buttons
-                case "equal":
-                    key.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            ButtonFunctions.mediaPlayer[(int)(Math.random() * 4)].start(); // Play Sound
-                            ButtonFunctions.solveEquation();
-                        }
-                    });
-                    break;
-                case "Delete":
-                    key.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            ButtonFunctions.mediaPlayer[(int)(Math.random() * 4)].start(); // Play Sound
-                            ButtonFunctions.deleteLast();
-                        }
-                    });
-                    break;
-                // Unassigned Buttons
-                default :
-                    key.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            ButtonFunctions.mediaPlayer[(int)(Math.random() * 4)].start(); // Play Sound
-                        }
-                    });
-            }
+            String keyFunction = (getResources().getResourceEntryName(ButtonFunctions.button_id[i]));
+            CalculatorButtons keySetup = new CalculatorButtons(key, keyFunction);
+            ButtonFunctions.buttons[i] = keySetup;
         }
     }
 
