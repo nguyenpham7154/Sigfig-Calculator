@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     // This function has to be called after the activity is created or the app crashes
@@ -19,15 +20,14 @@ public class MainActivity extends AppCompatActivity {
         // Initializes sound
         setButtonSound();
 
-        // Sets property for each type of buttons
+        // Textview of equation area
+        TextView typingArea = (TextView) findViewById(R.id.typingArea);
+
+        // Creates new button from CalculatorButton class
         for (int i = 0; i < ButtonFunctions.button_id.length; i++) {
             Button key = (Button)findViewById(ButtonFunctions.button_id[i]);
-            key.setSoundEffectsEnabled(false);
-
-            // Attributes function to each buttons
             String keyFunction = (getResources().getResourceEntryName(ButtonFunctions.button_id[i]));
-            CalculatorButtons keySetup = new CalculatorButtons(key, keyFunction);
-            ButtonFunctions.buttons[i] = keySetup;
+            ButtonFunctions.buttons[i] = new CalculatorButtons(key, keyFunction, typingArea);
         }
     }
 

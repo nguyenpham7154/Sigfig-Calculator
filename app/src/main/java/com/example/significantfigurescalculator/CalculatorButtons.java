@@ -2,15 +2,19 @@ package com.example.significantfigurescalculator;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class CalculatorButtons {
-    
     public Button button;
     public String buttonType;
+    public TextView typingArea;
 
-    public CalculatorButtons (Button input, String inputType) {
+    public CalculatorButtons (Button input, String inputType, TextView inputTypingArea) {
         button = input;
         buttonType = inputType;
+        typingArea = inputTypingArea;
+
+        button.setSoundEffectsEnabled(false);
         
         switch (buttonType) {
             // Subjects
@@ -29,7 +33,7 @@ public class CalculatorButtons {
                     @Override
                     public void onClick(View v) {
                         ButtonFunctions.mediaPlayer[(int)(Math.random() * 4)].start(); // Play Sound
-                        ButtonFunctions.addDigit(buttonType.charAt(buttonType.length() - 1) - '0');
+                        ButtonFunctions.addDigit(buttonType.charAt(buttonType.length() - 1) - '0', typingArea);
                     }
                 });
                 break;
@@ -39,7 +43,7 @@ public class CalculatorButtons {
                     @Override
                     public void onClick(View v) {
                         ButtonFunctions.mediaPlayer[(int)(Math.random() * 4)].start(); // Play Sound
-                        ButtonFunctions.equation(buttonType);
+                        ButtonFunctions.equation(buttonType, typingArea);
                     }
                 });
                 break;
@@ -49,7 +53,7 @@ public class CalculatorButtons {
                     @Override
                     public void onClick(View v) {
                         ButtonFunctions.mediaPlayer[(int)(Math.random() * 4)].start(); // Play Sound
-                        ButtonFunctions.solveEquation();
+                        ButtonFunctions.solveEquation(typingArea);
                     }
                 });
                 break;
@@ -58,7 +62,7 @@ public class CalculatorButtons {
                     @Override
                     public void onClick(View v) {
                         ButtonFunctions.mediaPlayer[(int)(Math.random() * 4)].start(); // Play Sound
-                        ButtonFunctions.deleteLast();
+                        ButtonFunctions.deleteLast(typingArea);
                     }
                 });
                 break;

@@ -3,6 +3,7 @@ package com.example.significantfigurescalculator;
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.util.Log;
+import android.widget.TextView;
 
 public class ButtonFunctions {
 
@@ -36,23 +37,37 @@ public class ButtonFunctions {
 
     }
 
-    public static void addDigit(int digit) {
+    public static void addDigit(int digit, TextView typingArea) {
         // Adds a digit to the equation with digit given
 
+        // Here's an exemple of how to change what text is displayed on the screen
+        currentEquation += digit;
+        typingArea.setText(currentEquation);
     }
 
-    public static void equation(String operation) {
+    public static void equation(String operation, TextView typingArea) {
         // Adds a operation to the equation
 
+        // Here's an exemple of how to change what text is displayed on the screen
+        switch(operation) {
+            case "Addition": currentEquation += "+"; break;
+            case "Substraction": currentEquation += "-"; break;
+            case "Multiplication": currentEquation += "×"; break;
+            case "Division": currentEquation += "/"; break;
+        }
+        typingArea.setText(currentEquation);
     }
 
-    public static void solveEquation() {
-        // Solve the current equation
+    public static void solveEquation(TextView typingArea) {
+        // Solve the current equation (This is not gonna be fun cause there isn't really an eval function...)
 
     }
 
-    public static void deleteLast() {
+    public static void deleteLast(TextView typingArea) {
         // Delete last input
 
+        // Here's an exemple of how to change what text is displayed on the screen
+        currentEquation = currentEquation.substring(0, currentEquation.length() - 1);
+        typingArea.setText(currentEquation);
     }
 }
